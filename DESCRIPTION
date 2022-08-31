@@ -1,0 +1,16 @@
+Package: dhsctools
+Title: Set of useful code for using R at DHSC
+Version: 0.0.0.9000
+Authors@R: 
+    person("Matthew", "Katz", , "matthew.katz@dhsc.gov.uk", role = c("aut", "cre"))
+Description: Package to consolidate various hacks for using R at DHSC. 
+    Current focus is on proxy settings for curl and git.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Imports: 
+    curl,
+    httr,
+    stringr,
+    usethis
