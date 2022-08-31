@@ -14,44 +14,34 @@ Department’s IT infrastructure and working on the estate.
 For more general guidance on using R in the Department please see the
 dhsc-r-guide repository.
 
+This code has been developed in-house and not extensively tested, if you
+find any bugs or have suggestions of other functions to add please raise
+an issue in this repository.
+
 ## Installation
 
 You can install the development version of dhsctools using:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+devtools::install_github("DataS-DHSC/dhsctools")
 ```
 
-## Example
+## Examples
 
-This is a basic example which shows you how to solve a common problem:
+Configure http and https proxy settings for our corporate firewall when
+using git on the DHSC estate through a wired connection:
 
 ``` r
-##library(dhsctools)
-## basic example code
+dhsctools::configure_git_proxy()
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+Configure proxy settings for functions based on curl using Windows
+settings (needed when on the DHSC estate using a wired connection due to
+corporate firewall):
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+dhsctools::configure_curl_proxy()
+
+httr::content(httr::GET("https://api.ipify.org"), encoding = "UTF-8")
+#> [1] "136.228.234.8"
 ```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/v1/examples>.
-
-You can also embed plots, for example:
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
