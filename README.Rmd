@@ -40,9 +40,10 @@ devtools::install_github("DataS-DHSC/dhsctools")
 ## Examples
 
 Configure http and https proxy settings for our corporate firewall when using 
-git on the DHSC estate through a wired connection:
+git on the DHSC estate through a wired connection (only works if repo was
+cloned via https rather than ssh):
 
-```{r example1}
+```{r example1, eval = FALSE}
 dhsctools::configure_git_proxy()
 ```
 
@@ -50,7 +51,7 @@ Configure proxy settings for functions based on curl using Windows settings
 (needed when on the DHSC estate using a wired connection due to corporate 
 firewall):
 
-```{r example2}
+```{r example2, eval = FALSE}
 dhsctools::configure_curl_proxy()
 
 httr::content(httr::GET("https://api.ipify.org"), encoding = "UTF-8")
