@@ -1,0 +1,132 @@
+---
+title: "DHSC Project Template - How To"
+format: html
+editor: visual
+execute: 
+  eval: false
+---
+
+The DHSC project template is intended to embed a standard approach to R programming at DHSC and adheres to coding best practice as set out by the UK Government Analytical Community - Quality assurance of code for analysis and research (see <https://best-practice-and-impact.github.io/qa-of-code-guidance/>). This document explains how to use this template along with some basic best practice that should be followed.
+
+**Note:** When the template runs it creates a log file in the base folder of the project called `template_build.log` which can be used for troubleshooting any issues during provisioning.
+
+The template creates a project structure that closely follows that enforced by R packages. This allows the use of automated features such as documenting and unit testing of code as well as simplifying the process of converting code to a package if needed.
+
+## Initial configuration
+
+-   Complete the *Title*, *Authors\@R*, and *Description* fields in the `DESCRIPTION` file
+-   Begin adding details to the `README.Rmd` file about the project and the analysis performed
+-   Check that your git user.name and user.email are correctly set (see `template_build.log` for current values or run `usethis::git_sitrep()`)
+
+**Note:** The package name in the `DESCRIPTION` file may differ from that of the R project for package compatibility reasons (R package names must contain only (ASCII) letters, numbers and dot, have at least two characters and start with a letter and not end in a dot).
+
+### Configure git
+
+If you need to set your git user.name and user.email use the following command (replacing the name and email with your own):
+
+```{r}
+usethis::use_git_config(
+  user.name = "Alan Smithee",
+  user.email = "Alan.Smithee@dhsc.gov.uk"
+) 
+```
+
+**Note:** Please ensure that the user.email you set is the same email as linked to your GitHub account.
+
+## Best practice
+
+To help maintainability and QA, we recommended using the [`tidyverse`](https://www.tidyverse.org/) framework along with the associated [tidyverse style guide](https://style.tidyverse.org/) (and `lintr` and `styler` addin packages accessible from the Addins drop down on the tool bar) when writing your R code.
+
+Please use the `main.R` script to source and call the main function used to run your analysis. Using a standard entry point to running the analysis will help others understand and run your code more quickly and also enforces the use of modular functions. All other scripts should be saved in the `./R` folder with code structured into separate files containing logically grouped functions. For non-packaged projects, please add a section to the start of each file that explicitly installs and loads all dependencies (either using th `librarian` package and built-in base R `source` function for smaller projects or the `box` and `renv` packages for larger projects) and sets up logging.
+
+Store input parameters and settings in the `./input/config.yml` YAML file and sensitive parameters in the `.REnviron` file (this file is not version controlled by default in the template).
+
+Store input data and settings in the `./input` folder and write any output from the analysis to the `./output` folder. These folders contain `.gitignore` files which prevent their contents from being version controlled (with the exception of `./input/config.yml`).
+
+For small projects, we recommend using the `librarian` package and base R `source` function to manage dependencies; for larger projects we would recommend using the `renv` and `box` packages for dependency management as well as considering packaging the project itself on GitHub.
+
+Further guidance on best practice and links to useful packages can be found at \*\*link to be added\*\*
+
+## Documenting code
+
+Please use comments (`#`) to explain why you are doing something with the exception of explaining what you are doing for non-standard or complex code.
+
+### Function headers
+
+Make sure that all functions are documented using [roxygen2](https://roxygen2.r-lib.org/) comment headers.
+
+To add a comment header place the cursor inside the function to be documented and then either use the Ctrl + Alt + Shift + R shortcut or select *Code* \> *Insert Roxygen skeleton* from the main menu (this can also be accessed from the drop down opened by clicking the *Code tools* button in the menu bar at the top of the script's tab).
+
+To then render the documentation for the whole project either use the Ctrl + Shift + D shortcut, select *Build* \> *Document* from the main menu, or run `devtools::document()`.
+
+### Html documentation
+
+To generate a webpage version of the project documentation run:
+
+```{r}
+# make sure the README has been updated
+rmarkdown::render("README.Rmd")
+
+# update any documentation based on roxygen function headers
+devtools::document()
+
+# automatically generate web page
+pkgdown::build_site()
+```
+
+### Versioning
+
+For versioning your code, first update the *Version* field in the `DESCRIPTION` file (see [R Packages (2e) - 22  Lifecycle (r-pkgs.org)](https://r-pkgs.org/lifecycle.html#sec-lifecycle-version-number-tidyverse) for details on version numbers) and then add a new entry to the `NEWS.md` changelog file. If you did not create a changelog when starting the project you can run the following command to create one:
+
+```{r}
+usethis::use_news_md()
+```
+
+## Adding GitHub support
+
+To add your code to GitHub as a private repo in the DHSC Data Science organisation run:
+
+```{r}
+usethis::use_github(
+  organisation = "DataS-DHSC",
+  visibility = "private"
+)
+```
+
+To add your html documentation to GitHub run:
+
+```{r}
+usethis::use_github_pages()
+```
+
+## Unit testing
+
+If you did not enable unit testing on project creation you can use the following code to set up a testing framework:
+
+```{r}
+usethis::use_testthat()
+```
+
+To create unit tests of your scripts run the following while the script is open in the script editor (alternatively pass the script name without extension):
+
+```{r}
+usethis::use_test()
+```
+
+## Common issues at DHSC
+
+-   R does not connect to the internet when using wired connection on DHSC estate -- try using the `DHSCtools::configure_curl_proxy()` helper function. If this does not work unplug the Ethernet cable from the back of the dock and use GovWifi to access the internet (you will need to have set up an account before hand see [Wifi in DHSC \| DHSC Intranet](https://intranet.dhsc.gov.uk/me-in-dh/my-building/wi-fi-for-dh-staff/)).
+-   If prompted, never install a package from source unless you have correctly configured RTools (add the line `RTOOLS42_HOME="C:\PROGRA\~1\rtools42"` to your project's local .REnviron file).
+
+## Template features:
+
+-   Best practice project structure
+-   Pre-configured git support including `.gitignore` files to prevent input, output, and environment (`.REnviron`) files being version controlled
+-   A template `README.Rmd` that is compatible with GitHub
+-   A template `DESCRIPTION` file to support the use of package tools
+-   Standard licensing and code of conduct information
+-   An example YAML parameter file `./input/config.yml`
+-   Support for html documentation via `pkgdown`
+-   An example of project code (if selected)
+-   A `NEW.md` change log file (if selected)
+-   A unit testing framework using `testthat` (if selected)

@@ -1,5 +1,8 @@
 ---
 output: github_document
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -13,48 +16,56 @@ knitr::opts_chunk$set(
 )
 ```
 
-# dhsctools
+# *\*\* Package in development \*\**
 
-<!-- badges: start -->
-<!-- badges: end -->
+# DHSCtools
 
-The goal of dhsctools is to provide a collection of helper functions to 
-try and solve common problems experienced by analysts when using the 
-Department's IT infrastructure and working on the estate. 
+The goal of DHSCtools is to provide a collection of tools to try and
+embed best practices for coding in the analytical community and to solve
+common problems experienced by analysts when using the Department's IT
+infrastructure.
 
-For more general guidance on using R in the Department please see the 
-dhsc-r-guide repository.
+The main component of this package is a DHSC project template that
+attempts to simplify the process of writing clean and maintainable code
+that conforms to best practice as set out in [UK Government Analytical
+Community - Quality assurance of code for analysis and
+research](https://best-practice-and-impact.github.io/qa-of-code-guidance/).
 
-This code has been developed in-house and not extensively tested, if you find
-any bugs or have suggestions of other functions to add please raise an issue
-in this repository.
+This code has been developed in-house and not extensively tested, if you
+find any bugs or have suggestions of other functions to add please raise
+an issue in this repository.
 
 ## Installation
 
-You can install the development version of dhsctools using:
+You can install the development version of DHSCtools using:
 
 ``` r
-devtools::install_github("DataS-DHSC/dhsctools")
+librarian::stock(DataS-DHSC/DHSCtools)
 ```
+
+## DHSC project template
+
+After installing the package, to use the DHSC project template go to
+*File \> New Project...* then select *New Directory* followed by *DHSC
+Project Template*.
 
 ## Examples
 
-Configure http and https proxy settings for our corporate firewall when using 
-git on the DHSC estate through a wired connection (only works if repo was
-cloned via https rather than ssh):
+Configure http and https proxy settings for our corporate firewall when
+using git on the DHSC estate through a wired connection (only works if
+repo was cloned via https rather than SSH):
 
 ```{r example1, eval = FALSE}
-dhsctools::configure_git_proxy()
+DHSCtools::configure_git_proxy()
 ```
 
-Configure proxy settings for functions based on curl using Windows settings 
-(needed when on the DHSC estate using a wired connection due to corporate 
-firewall):
+Configure proxy settings for functions based on curl using Windows
+settings (needed when on the DHSC estate using a wired connection due to
+corporate firewall):
 
 ```{r example2, eval = FALSE}
-dhsctools::configure_curl_proxy()
+DHSCtools::configure_curl_proxy()
 
 httr::content(httr::GET("https://api.ipify.org"), encoding = "UTF-8")
 
 ```
-

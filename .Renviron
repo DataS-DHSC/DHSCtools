@@ -1,1 +1,2 @@
-PATH="${RTOOLS40_HOME}\usr\bin;${PATH}"
+RTOOLS42_HOME="C:\PROGRA~1\rtools42"
+##PATH="${RTOOLS42_HOME}\usr\bin;${PATH}"

@@ -2,3 +2,4 @@
 
 export(configure_curl_proxy)
 export(configure_git_proxy)
+export(create_template)

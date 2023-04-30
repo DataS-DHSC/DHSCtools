@@ -1,0 +1,7 @@
+# see https://cran.r-project.org/web/packages/ymlthis/vignettes/yaml-overview.html
+# for details of writing yaml files
+source_url: "https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice/january-2023"
+
+file_regex:
+  - "Covid Vaccination Appointments \\(NIMS\\)$"
+  - "^Appointments.*Summary$"

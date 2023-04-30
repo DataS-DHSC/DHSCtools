@@ -1,0 +1,9 @@
+# ignore everything
+*
+/*
+
+# except this file - very meta
+!.gitignore
+
+# also keep parameters if not sensitive
+!config.yml

@@ -1,0 +1,27 @@
+Binding: create_template
+Title: DHSC Project Template
+OpenFiles: template_howto.qmd,README.Rmd,main.R,DESCRIPTION,template_build.log
+
+Parameter: inc_howto
+Widget: CheckboxInput
+Label: Include how-to markdown?
+Default: On
+Position: left
+
+Parameter: inc_example
+Widget: CheckboxInput
+Label: (Todo) Include example code?
+Default: On
+Position: left
+
+Parameter: inc_news
+Widget: CheckboxInput
+Label: Add NEWS.md change log?
+Default: Off
+Position: left
+
+Parameter: inc_testthat
+Widget: CheckboxInput
+Label: Include unit testing framework (testthat)?
+Default: Off
+Position: left

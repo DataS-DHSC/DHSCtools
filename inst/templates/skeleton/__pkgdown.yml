@@ -1,0 +1,4 @@
+title: {{project_name}}
+url: ~
+template:
+  bootstrap: 5

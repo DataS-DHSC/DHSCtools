@@ -1,18 +1,29 @@
-Package: dhsctools
-Title: Set of useful code for using R at DHSC
+Package: DHSCtools
+Title: Collection of tools for Using R at DHSC
 Version: 0.0.0.9000
 Authors@R: 
     person("Matthew", "Katz", , "matthew.katz@dhsc.gov.uk", role = c("aut", "cre"))
-Description: Package to consolidate various hacks for using R at DHSC. 
-    Current focus is on proxy settings for curl and git.
+Description: Package to install a set of various coding tools into RStudio that
+    embed best practice and automate several repetitive tasks when coding 
+    at DHSC.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 Imports: 
+    cli,
     curl,
+    DHSClogger,
+    fs,
+    gert,
     httr,
+    lintr,
+    pkgdown,
+    rstudioapi,
     stringr,
+    styler,
     usethis
-URL: https://github.com/DataS-DHSC/dhsctools
-BugReports: https://github.com/DataS-DHSC/dhsctools/issues
+URL: https://github.com/DataS-DHSC/DHSCtools
+BugReports: https://github.com/DataS-DHSC/DHSCtools/issues
+Remotes: 
+    DataS-DHSC/DHSClogger

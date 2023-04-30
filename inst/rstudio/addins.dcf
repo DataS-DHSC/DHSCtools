@@ -1,0 +1,10 @@
+
+Name: Insert proxy config
+Description: Inserts code to set internet proxy when on DHSC estate
+Binding: insert_proxy_config
+Interactive: false
+
+Name: New Addin Name
+Description: New Addin Description
+Binding: new_addin
+Interactive: false
