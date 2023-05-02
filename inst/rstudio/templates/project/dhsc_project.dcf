@@ -10,7 +10,7 @@ Position: left
 
 Parameter: inc_example
 Widget: CheckboxInput
-Label: (Todo) Include example code?
+Label: Include example code?
 Default: On
 Position: left
 

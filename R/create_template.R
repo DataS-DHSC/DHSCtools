@@ -52,9 +52,24 @@ create_template <- function(path, ...) {
   usethis::use_directory("R")
 
   # add back in below when example code ready
-  # if (dots$inc_example) {
-  #   copy_folder(file.path("skeleton", "R"), "R", data)
-  # }
+  if (dots$inc_example) {
+    copy_folder("with_example", ".", data)
+    copy_folder(file.path("with_example", "R"), "R", data)
+    copy_folder(file.path("with_example", "input"), "input", data)
+    fs::dir_copy(
+      fs::path_package(
+        "DHSCtools",
+        "templates",
+        "with_example",
+        "input",
+        "ICB_April_2023_BSC"
+      ),
+      file.path("input", "ICB_April_2023_BSC")
+    )
+  } else {
+    copy_folder("without_example", ".", data)
+    copy_folder(file.path("without_example", "input"), "input", data)
+  }
 
   # ignore non-package compliant files/folders
   usethis::use_build_ignore(

@@ -2,6 +2,11 @@
 # for details of writing yaml files
 source_url: "https://digital.nhs.uk/data-and-information/publications/statistical/appointments-in-general-practice/january-2023"
 
-file_regex:
-  - "Covid Vaccination Appointments \\(NIMS\\)$"
-  - "^Appointments.*Summary$"
+nims:
+  regex: "Covid Vaccination Appointments \\(NIMS\\)$"
+  filename: "nims.csv"
+
+summary:
+  regex: "^Appointments.*Summary$"
+  filename: "summary.xlsx"
+
