@@ -28,6 +28,10 @@ You can install the development version of DHSCtools using:
 librarian::stock(DataS-DHSC/DHSCtools)
 ```
 
+**Note:** You will need to restart your R session (either by restarting
+RStudio or using *Session* \> *Restart R*) on installing to see the
+*DHSC Project Template* option.
+
 ## DHSC project template
 
 After installing the package, to use the DHSC project template go to
