@@ -25,6 +25,7 @@ an issue in this repository.
 You can install the development version of DHSCtools using:
 
 ``` r
+if (!requireNamespace("librarian")) install.packages("librarian", quiet = TRUE)
 librarian::stock(DataS-DHSC/DHSCtools)
 ```
 
