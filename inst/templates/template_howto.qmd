@@ -71,7 +71,7 @@ rmarkdown::render("README.Rmd")
 devtools::document()
 
 # automatically generate web page
-pkgdown::build_site()
+pkgdown::build_site(examples = FALSE)
 ```
 
 ### Versioning
@@ -93,7 +93,7 @@ usethis::use_github(
 )
 ```
 
-To add your html documentation to GitHub run:
+To add your html documentation to GitHub (currently only for public repositories) run:
 
 ```{r}
 usethis::use_github_pages()
