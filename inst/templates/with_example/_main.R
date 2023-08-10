@@ -13,6 +13,7 @@ suppressWarnings(
   librarian::stock(
     DataS-DHSC/DHSClogger,
     DataS-DHSC/DHSCtools,
+    DataS-DHSC/DHSCcolours,
     yaml, tidyverse,
     tools, fs,
     curl, httr, polite, rvest,

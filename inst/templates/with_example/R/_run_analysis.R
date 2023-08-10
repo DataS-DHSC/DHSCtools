@@ -4,9 +4,9 @@ library(tidyverse)
 
 
 # Source other scripts ----------------------------------------------------
-download <- new.env(parent = baseenv()); source("./R/download.R", local = download)
-process <- new.env(parent = baseenv()); source("./R/process.R", local = process)
-visualise <- new.env(parent = baseenv()); source("./R/visualise.R", local = visualise)
+download <- new.env(); source("./R/download.R", local = download)
+process <- new.env(); source("./R/process.R", local = process)
+visualise <- new.env(); source("./R/visualise.R", local = visualise)
 
 
 # Main function to run analysis -------------------------------------------
