@@ -1,8 +1,11 @@
 Package: DHSCtools
 Title: Collection of tools for Using R at DHSC
 Version: 0.0.0.9000
-Authors@R: 
-    person("Matthew", "Katz", , "matthew.katz@dhsc.gov.uk", role = c("aut", "cre"))
+Authors@R: c(
+    person("Matthew", "Katz", , "matthew.katz@dhsc.gov.uk", role = c("aut", "cre")),
+    person("Stephen", "Ashton", , "Stephen.Ashton@dhsc.gov.uk", role = "ctb",
+           comment = c(ORCID = "0000-0002-2750-9902"))
+  )
 Description: Package to install a set of various coding tools into RStudio that
     embed best practice and automate several repetitive tasks when coding 
     at DHSC.
