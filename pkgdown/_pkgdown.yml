@@ -1,0 +1,19 @@
+url: ~
+template:
+  bootstrap: 5
+  bootswatch: flatly
+  bslib:
+    # Specify pkgdown variables
+    pkgdown-nav-height: 75px
+    # Specify fonts
+    base_font: {google: "Roboto"}
+    heading_font: {google: "Roboto"}
+    code_font: {google: "Roboto Mono"}
+    # Specify colours
+    primary: "#101820"
+    success: "#00AD93"
+    info: "#0063BE"
+    warning: "#E57200"
+    danger: "#CC092F"
+    link-color: "#00AD93"
+    link-hover-color: "#00AD93"
