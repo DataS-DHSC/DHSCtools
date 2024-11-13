@@ -6,6 +6,7 @@ library(ggrepel)
 library(scales)
 library(sf)
 library(svglite)
+library(afcharts)
 
 
 # Function definitions ----------------------------------------------------
@@ -90,7 +91,7 @@ plot_attendance_proportions <- function(attendance_data) {
       aes(date, proportion, colour = type),
       linewidth = 1
     ) +
-    afcharts::scale_colour_continuous_af() +
+    afcharts::scale_colour_discrete_af() +
     scale_y_continuous(labels=scales::percent) +
     scale_x_date(
       name = "Date",
@@ -153,7 +154,7 @@ plot_nims_monthly <- function(nims_monthly_data) {
       limits = c(0, NA),
       expand = c(0, NA)
     ) +
-    afcharts::scale_colour_continuous_af() +
+    afcharts::scale_colour_discrete_af() +
     labs(
       title = "Number of NIMS GP attendances",
       subtitle = "England",
