@@ -48,6 +48,14 @@ librarian::stock(DataS-DHSC/DHSCtools)
 RStudio or using *Session* \> *Restart R*) on installing to see the
 *DHSC Project Template* option.
 
+To UPDATE DHSCtools, run the following:
+
+``` r
+librarian::stock(DataS-DHSC/DHSCtools, update_all = TRUE)
+```
+
+Again, you will need to restart your R session after installation.
+
 ## DHSC project template
 
 After installing the package, to use the DHSC project template go to
