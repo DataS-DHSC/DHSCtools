@@ -79,7 +79,7 @@ plot_attendance_proportions <- function(attendance_data) {
   }
 
   plt <- ggplot() +
-    DHSCcolours::theme_dhsc() +
+    afcharts::theme_af() +
     theme(
       axis.title.y = element_blank(),
       panel.grid.major.y = element_blank(),
@@ -90,7 +90,7 @@ plot_attendance_proportions <- function(attendance_data) {
       aes(date, proportion, colour = type),
       linewidth = 1
     ) +
-    DHSCcolours::scale_colour_dhsc_d() +
+    afcharts::scale_colour_continuous_af() +
     scale_y_continuous(labels=scales::percent) +
     scale_x_date(
       name = "Date",
@@ -100,7 +100,7 @@ plot_attendance_proportions <- function(attendance_data) {
     geom_vline(
       xintercept = v_ticks,
       linetype="dotted",
-      colour = DHSCcolours::dhsc_grey()
+      colour = afcharts::af_colour_values["dark-grey"]
     ) +
     labs(
       title = "Proportion of GP attendances by type",
@@ -131,7 +131,7 @@ plot_nims_monthly <- function(nims_monthly_data) {
     )
 
   plt <- ggplot() +
-    DHSCcolours::theme_dhsc() +
+    afcharts::theme_af() +
     theme(
       axis.title.y = element_blank(),
       panel.grid.major.y = element_blank(),
@@ -153,7 +153,7 @@ plot_nims_monthly <- function(nims_monthly_data) {
       limits = c(0, NA),
       expand = c(0, NA)
     ) +
-    DHSCcolours::scale_colour_dhsc_d() +
+    afcharts::scale_colour_continuous_af() +
     labs(
       title = "Number of NIMS GP attendances",
       subtitle = "England",
@@ -208,8 +208,8 @@ plot_nims_icb_map <- function(nims_icb_data) {
       size = 0.1
     ) +
     scale_fill_gradient(
-      low = DHSCcolours::dhsc_white(),
-      high = DHSCcolours::dhsc_dark_green()
+      low = afcharts::af_colour_values["grey"],
+      high = afcharts::af_colour_values["dark-blue"]
     ) +
     labs(
       title = str_wrap("NIMs attendances by ICB", width = 80),
